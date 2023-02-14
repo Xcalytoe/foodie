@@ -1,11 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  act,
-  //   render,
-  renderHook,
-  //   screen,
-  waitFor,
-} from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useCompareFoodMutation } from '../../../hooks/useCompareFoodMutation';
 import { rest } from 'msw';

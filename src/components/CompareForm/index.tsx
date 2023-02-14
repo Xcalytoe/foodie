@@ -26,9 +26,10 @@ const CompareForm = () => {
   };
   console.log(data, 'data');
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} aria-label="comparism-form">
       <TextAreaInput
         name="query"
+        aria-label="query"
         defaultValue="“1 plate of rice and one whole chicken” vs. “1 bowl of cereal and one orange”"
         errors={errors.query}
         ariaErrorMessage="queryErr"
@@ -36,7 +37,7 @@ const CompareForm = () => {
       />
       <StyledDiv mt="30px">
         <StyledButton
-          aria-label="Get Started"
+          aria-label="Calculate Foods"
           color="var(--white)"
           bg="var(--background-primary)"
           borderR="6px"
