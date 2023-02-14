@@ -7,7 +7,7 @@ Foodie is a web based app that helps users eat healthy. It enables its users to 
 - [React](https://github.com/facebook/react)
 - [Typescript](https://github.com/microsoft/TypeScript)
 - [Styled-components](https://github.com/styled-components/styled-components)
-- [Nutritionix API] (https://docs.google.com/document/d/1_q-K-ObMTZvO0qUEAxROrN3bwMujwAN25sLHwJzliK0/edit#)
+- [Nutritionix API](https://docs.google.com/document/d/1_q-K-ObMTZvO0qUEAxROrN3bwMujwAN25sLHwJzliK0/edit#)
 - [Zustand](https://github.com/pmndrs/zustand)
 
 ### Requirements
