@@ -3,19 +3,18 @@ import { css } from 'styled-components';
 const variables = css`
   :root {
     /* fonts  */
-    /* --Primary-font: 'Nunito', sans-serif; */
+    --Primary-font: 'Nunito', sans-serif;
     /* color  */
     --white: white;
-    --primary-text: #312e81;
+    --primary-text: #333;
     --primary-dark: #171717;
     --btn-text-hover: #6366f1;
 
-    --secondary-text: #404040;
+    --secondary-text: #555;
     --secondary-text_2: #737373;
     /* --secondary-text_2: rgba(82, 91, 113, 0.7); */
-    --background-primary: #192a56;
-    --background-primary_2: #fafafa;
-    --background-primary_3: #fafafa;
+    --background-primary: #5cb85c;
+
     --background-primary_4: hsla(0, 0%, 100%, 0.93);
     --btn-hover: #eef2ff;
     --btn-hover_2: hsla(226, 100%, 97%, 0.93);
@@ -26,10 +25,6 @@ const variables = css`
 
     --border: #e5e5e5;
     --border-2: #ebf1ff;
-
-    /* --background-primary_5: #f5f5f5;
-    --background-overlay: rgba(20, 50, 132, 0.5);
-    --background-light: #cce9fe; */
 
     --danger: #eb5757;
     --danger-bg: hsl(0, 79%, 95%);
