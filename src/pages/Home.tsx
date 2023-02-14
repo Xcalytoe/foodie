@@ -8,6 +8,7 @@ import {
 } from '../components/__style/ui-block.style';
 import styled from 'styled-components';
 import Breakdown from '../components/Breackdown';
+import ComparismTable from '../components/ComparismTable';
 
 const Home = () => {
   return (
@@ -40,6 +41,10 @@ const Home = () => {
           {/* Form container */}
           <StyledFlexItem mWidth="598px" basis="300px" grow>
             <CompareForm />
+            {/* Comparism Table */}
+            <StyledDiv>
+              <ComparismTable />
+            </StyledDiv>
           </StyledFlexItem>
           {/* Preview Container  */}
           <StyledFlexItem mWidth="280px" basis="280px" grow>

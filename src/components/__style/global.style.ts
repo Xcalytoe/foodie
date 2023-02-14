@@ -33,7 +33,6 @@ img{
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  /* background: var( --background-gradient); */
  }
 
 p,
@@ -107,7 +106,7 @@ export const ParagraphText = styled.p<{
   pb?: string;
   pl?: string;
   pr?: string;
-  color: string;
+  color?: string;
   spacing?: string;
 }>`
   margin-bottom: 0;

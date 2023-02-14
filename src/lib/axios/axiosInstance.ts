@@ -2,9 +2,10 @@
 import axios, { AxiosInstance } from 'axios';
 
 const baseURL = process.env.REACT_APP_API_URL;
-const appId = process.env.REACT_APP_X_APP_ID;
+
 const apiKey = process.env.REACT_APP_X_APP_KEY;
 const rmoteUserId = process.env.REACT_APP_X_REMOTE_USER_ID;
+const appId = process.env.REACT_APP_X_APP_ID;
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL,
@@ -15,6 +16,7 @@ axiosInstance.interceptors.request.use(
     config.headers['x-app-id'] = appId;
     config.headers['x-app-key'] = apiKey;
     config.headers['x-remote-user-id'] = rmoteUserId;
+
     return config;
   },
   (error: any) => {

@@ -2,37 +2,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation } from '@tanstack/react-query';
 import axiosInstance from '../lib/axios/axiosInstance';
+import { API_ROUTES } from '../lib/routing';
 
-interface IContact {
-  name: string;
-  email: string;
-  message: string;
-}
 interface IError {
   response: { data: string };
 }
 export const useCompareFoodMutation = () => {
+  const { COMPARE_FOOD } = API_ROUTES;
   return useMutation(
-    async (values: IContact): Promise<any> => {
-      const url = process.env.NEXT_PUBLIC_CONTACT_URL;
-      const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
-      const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
-      const userId = process.env.NEXT_PUBLIC_PUBLIC_KEY;
-
-      const data = {
-        service_id: serviceId,
-        template_id: templateId,
-        user_id: userId,
-        template_params: {
-          ...values,
-        },
-      };
-
-      const response = url && (await axiosInstance.post(url, data));
+    async (data: { query: string }): Promise<any> => {
+      const response = await axiosInstance.post(COMPARE_FOOD, data);
       return response;
     },
     {
       onError: (error: IError) => {
+        console.log(error, 'error');
+
         // const errMsg = error.response.data;
         // if (errMsg) {
         //   ToastService.error(errMsg);

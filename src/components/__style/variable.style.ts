@@ -24,7 +24,7 @@ const variables = css`
     --shadow_2: 0px 1px 2px rgba(16, 24, 40, 0.05);
 
     --border: #e5e5e5;
-    --border-2: #ebf1ff;
+    --border-2: #ddd;
 
     --danger: #eb5757;
     --danger-bg: hsl(0, 79%, 95%);
