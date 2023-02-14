@@ -3,10 +3,14 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-import { server } from './pages/__tests__/__mocks__/msw/server';
+import { server } from './__mocks__/msw/server';
 
 // Establish API mocking before all tests.
-beforeAll(() => server.listen());
+beforeAll(() =>
+  server.listen({
+    onUnhandledRequest: 'bypass',
+  })
+);
 // Reset any request handlers that we may add during the tests,
 // so they don't affect other tests.
 afterEach(() => server.resetHandlers());

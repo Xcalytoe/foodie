@@ -42,7 +42,7 @@ const Home = () => {
           <StyledFlexItem mWidth="598px" basis="300px" grow>
             <CompareForm />
             {/* Comparism Table */}
-            <StyledDiv>
+            <StyledDiv mt="40px">
               <ComparismTable />
             </StyledDiv>
           </StyledFlexItem>
