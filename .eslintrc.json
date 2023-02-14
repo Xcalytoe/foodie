@@ -1,0 +1,50 @@
+{
+  "root": true,
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+    // "@typescript-eslint/eslint-config-react-app"
+  ],
+  "plugins": ["@typescript-eslint", "testing-library"],
+
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "no-unused-vars": "error",
+    "camelcase": ["error", { "ignoreDestructuring": true }],
+
+    "curly": "error",
+    "eqeqeq": ["error", "always"],
+    "space-in-parens": ["error", "never"],
+    "space-before-blocks": [
+      "error",
+      { "functions": "always", "keywords": "always", "classes": "always" }
+    ],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+
+    "func-call-spacing": ["error", "never"],
+    "comma-style": ["error", "last"],
+    "brace-style": "error",
+    "block-spacing": "error",
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "spaced-comment": ["error", "always"],
+    // "require-await": "error",
+    "prefer-const": "error",
+    "no-useless-return": "error",
+    "no-extra-semi": "error"
+  }
+  //   "overrides": [
+  //     // Only uses Testing Library lint rules in test files
+  //     {
+  //       "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"]
+  //       //   "extends": ["plugin:testing-library/react"]
+  //     }
+  //   ]
+}
