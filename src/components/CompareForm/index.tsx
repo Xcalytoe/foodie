@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { useSearchData } from '../../hooks/data.store';
 import { useCompareFoodMutation } from '../../hooks/useCompareFoodMutation';
 import { compareFormSchema } from '../../validation/compare.schema';
 import TextAreaInput from '../form/textarea';
@@ -24,7 +25,14 @@ const CompareForm = () => {
   const onSubmit = (data: { query: string }) => {
     mutate(data);
   };
-  console.log(data, 'data');
+
+  const setSearchData = useSearchData(({ addToStore }) => addToStore);
+  // Update state when data is returned
+  useEffect(() => {
+    data && setSearchData(data.data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} aria-label="comparism-form">
       <TextAreaInput
