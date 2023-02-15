@@ -133,4 +133,6 @@ const StyledBtnText = styled(ParagraphText)`
 `;
 const StyledLabel = styled.label`
   cursor: pointer;
+  display: flex;
+  column-gap: 8px;
 `;
