@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { useSearchData } from '../../hooks/data.store';
+import { usePinState, useSearchData } from '../../hooks/data.store';
 import { useCompareFoodMutation } from '../../hooks/useCompareFoodMutation';
 import { compareFormSchema } from '../../validation/compare.schema';
 import InputError from '../form/InputError';
@@ -13,6 +13,7 @@ import { ParagraphText } from '../__style/global.style';
 import { StyledButton, StyledDiv } from '../__style/ui-block.style';
 
 const CompareForm = () => {
+  const [checked, setChecked] = useState(false);
   const {
     register,
     handleSubmit,
@@ -26,7 +27,18 @@ const CompareForm = () => {
   const onSubmit = (data: { query: string }) => {
     mutate(data);
   };
+  // Add to state
   const setSearchData = useSearchData(({ addToStore }) => addToStore);
+
+  // Add to state
+  const pinSearchData = useSearchData(({ pinToStore }) => pinToStore);
+
+  // Clear pinned state
+  const clearearchData = useSearchData(({ clearStore }) => clearStore);
+
+  // Get pinned state
+  const pinState = usePinState(({ pinState }) => pinState);
+
   // Update state when data is returned
   useEffect(() => {
     data && setSearchData(data.data);
@@ -34,6 +46,21 @@ const CompareForm = () => {
   }, [data]);
   // Request error message
   const requestErr = error?.response?.data?.message;
+
+  const handleOnChange = () => {
+    if (checked) {
+      clearearchData();
+      setChecked(false);
+    } else {
+      pinSearchData(data.data);
+      setChecked(true);
+    }
+  };
+
+  useEffect(() => {
+    // Get pinned status
+    pinState?.foods?.length > 0 ? setChecked(true) : setChecked(false);
+  }, [pinState?.foods]);
 
   return (
     <StyledDiv>
@@ -69,6 +96,29 @@ const CompareForm = () => {
               Calculate Foods
             </StyledBtnText>
           </StyledButton>
+          {(checked || data?.data) && (
+            <StyledDiv mt="20px">
+              <StyledLabel>
+                <input
+                  type="checkbox"
+                  name="pin-request"
+                  checked={checked}
+                  value="pin"
+                  onChange={handleOnChange}
+                />
+                <ParagraphText
+                  fsize="15px"
+                  lh="20px"
+                  fw="400"
+                  as="span"
+                  spacing="1px"
+                  color="var(--primary-dark)"
+                >
+                  {checked ? 'Unpin pinned result' : 'Pin result'}
+                </ParagraphText>
+              </StyledLabel>
+            </StyledDiv>
+          )}
         </StyledDiv>
       </form>
     </StyledDiv>
@@ -78,6 +128,10 @@ const CompareForm = () => {
 export default CompareForm;
 
 const StyledBtnText = styled(ParagraphText)`
+  display: flex;
+  column-gap: 6px;
+`;
+const StyledLabel = styled.label`
   display: flex;
   column-gap: 6px;
 `;
