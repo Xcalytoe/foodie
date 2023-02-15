@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import create from 'zustand';
+import { create } from 'zustand';
 
 const SEARCH_DATA = '__search_data';
 interface IStore {

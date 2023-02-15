@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Home from './pages/Home';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { GlobalStyle } from './components/__style/global.style';

@@ -12,7 +12,7 @@ Foodie is a web based app that helps users eat healthy. It enables its users to 
 
 ### Requirements
 
-- Create a `.env` file and add the following to it;
+- Create a `.env.local` file and add the following to it;
 
   - `REACT_APP_API_URL`
   - `REACT_APP_X_APP_ID`

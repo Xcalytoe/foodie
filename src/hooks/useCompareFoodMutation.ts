@@ -5,7 +5,7 @@ import axiosInstance from '../lib/axios/axiosInstance';
 import { API_ROUTES } from '../lib/routing';
 
 interface IError {
-  response: { data: string };
+  response: { data: { message: string } };
 }
 export const useCompareFoodMutation = () => {
   const { COMPARE_FOOD } = API_ROUTES;
@@ -16,8 +16,6 @@ export const useCompareFoodMutation = () => {
     },
     {
       onError: (error: IError) => {
-        console.log(error, 'error');
-
         // const errMsg = error.response.data;
         // if (errMsg) {
         //   ToastService.error(errMsg);

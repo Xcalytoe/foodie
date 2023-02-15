@@ -42,9 +42,9 @@ const Home = () => {
           <StyledFlexItem mWidth="598px" basis="300px" grow>
             <CompareForm />
             {/* Comparism Table */}
-            <StyledDiv mt="40px">
+            <StyledHorizontalScroll minusPx="66px" mt="40px">
               <ComparismTable />
-            </StyledDiv>
+            </StyledHorizontalScroll>
           </StyledFlexItem>
           {/* Preview Container  */}
           <StyledFlexItem mWidth="280px" basis="280px" grow>
@@ -58,6 +58,10 @@ const Home = () => {
 
 export default Home;
 
+export const StyledHorizontalScroll = styled(StyledDiv)<{ minusPx: string }>`
+  overflow-x: auto;
+  max-width: calc(100vw - ${({ minusPx }) => minusPx});
+`;
 const StyledContainer = styled(StyledDiv)`
   max-width: 944px;
   margin: auto;

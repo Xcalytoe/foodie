@@ -12,73 +12,76 @@ import { useSearchData } from '../../hooks/data.store';
 const ComparismTable = () => {
   // Get food data from store
   const getSearchData = useSearchData(({ searchData }) => searchData);
-
   return (
-    <StyledTableContainer>
-      {/* Table header  */}
-      <StyledGrid gtc="minmax(60px, 1fr) minmax(41px, 1fr) minmax( 94px, 1fr) minmax(125px, 1fr) minmax(90px, 1fr) minmax(65px, 1fr) minmax(92px, 1fr)">
-        <HeadingText
-          fw="400"
-          fsize="16px"
-          lh="30px"
-          color="var(--primary-text)"
-        ></HeadingText>
-        <HeadingText
-          fw="800"
-          fsize="14px"
-          lh="30px"
-          color="var(--primary-text)"
-        >
-          Qty
-        </HeadingText>
-        <HeadingText
-          fw="800"
-          fsize="14px"
-          lh="30px"
-          color="var(--primary-text)"
-        >
-          Unit
-        </HeadingText>
-        <HeadingText
-          fw="800"
-          fsize="14px"
-          lh="30px"
-          color="var(--primary-text)"
-        >
-          Food
-        </HeadingText>
-        <HeadingText
-          fw="800"
-          fsize="14px"
-          lh="30px"
-          color="var(--primary-text)"
-        >
-          Calories
-        </HeadingText>
-        <HeadingText
-          fw="800"
-          fsize="14px"
-          lh="30px"
-          color="var(--primary-text)"
-        >
-          Weight
-        </HeadingText>
-        <HeadingText
-          fw="800"
-          fsize="14px"
-          lh="30px"
-          color="var(--primary-text)"
-        >
-          Food Group
-        </HeadingText>
-      </StyledGrid>
-      <StyledUnderline border="2px solid var(--border)" />
-      {/* Table Body  */}
-      {getSearchData?.foods?.length > 0 &&
-        getSearchData.foods.map((val: IFood, index: string) => (
-          <Tbody key={index} data={val} />
-        ))}
-    </StyledTableContainer>
+    <>
+      {!!getSearchData?.foods && (
+        <StyledTableContainer>
+          {/* Table header  */}
+          <StyledGrid gtc="minmax(60px, 1fr) minmax(41px, 1fr) minmax( 94px, 1fr) minmax(125px, 1fr) minmax(90px, 1fr) minmax(65px, 1fr) minmax(92px, 1fr)">
+            <HeadingText
+              fw="400"
+              fsize="16px"
+              lh="30px"
+              color="var(--primary-text)"
+            ></HeadingText>
+            <HeadingText
+              fw="800"
+              fsize="14px"
+              lh="30px"
+              color="var(--primary-text)"
+            >
+              Qty
+            </HeadingText>
+            <HeadingText
+              fw="800"
+              fsize="14px"
+              lh="30px"
+              color="var(--primary-text)"
+            >
+              Unit
+            </HeadingText>
+            <HeadingText
+              fw="800"
+              fsize="14px"
+              lh="30px"
+              color="var(--primary-text)"
+            >
+              Food
+            </HeadingText>
+            <HeadingText
+              fw="800"
+              fsize="14px"
+              lh="30px"
+              color="var(--primary-text)"
+            >
+              Calories
+            </HeadingText>
+            <HeadingText
+              fw="800"
+              fsize="14px"
+              lh="30px"
+              color="var(--primary-text)"
+            >
+              Weight
+            </HeadingText>
+            <HeadingText
+              fw="800"
+              fsize="14px"
+              lh="30px"
+              color="var(--primary-text)"
+            >
+              Food Group
+            </HeadingText>
+          </StyledGrid>
+          <StyledUnderline border="2px solid var(--border)" />
+          {/* Table Body  */}
+          {getSearchData?.foods?.length > 0 &&
+            getSearchData.foods.map((val: IFood, index: string) => (
+              <Tbody key={index} data={val} />
+            ))}
+        </StyledTableContainer>
+      )}
+    </>
   );
 };
 
@@ -86,6 +89,7 @@ export default ComparismTable;
 
 const StyledTableContainer = styled.div`
   overflow-x: scroll;
+  max-width: 100%;
 `;
 
 const StyledImg = styled.img`
