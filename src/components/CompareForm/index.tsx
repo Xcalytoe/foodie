@@ -132,6 +132,5 @@ const StyledBtnText = styled(ParagraphText)`
   column-gap: 6px;
 `;
 const StyledLabel = styled.label`
-  display: flex;
-  column-gap: 6px;
+  cursor: pointer;
 `;
