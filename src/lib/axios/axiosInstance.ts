@@ -13,9 +13,9 @@ const axiosInstance: AxiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    config.headers['x-app-id'] = appId;
+    config.headers['x-app-id'] = String(appId);
     config.headers['x-app-key'] = apiKey;
-    config.headers['x-remote-user-id'] = rmoteUserId;
+    config.headers['x-remote-user-id'] = String(rmoteUserId);
 
     return config;
   },
