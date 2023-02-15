@@ -1,6 +1,6 @@
 # About App
 
-Foodie is a web based app that helps users eat healthy. It enables its users to compare the nutritional information of various food before making a decision on what to eat. The great part about foodie is, it understands natural language - which means the user can enter “1 plate of rice and one whole chicken” and it understands they want nutritional information for rice and chicken in the provided quantity.
+Foodie is a web based app that helps users eat healthy. It enables its users to compare the nutritional information of various food before making a decision on what to eat. The great part about foodie is, it understands natural language - which means the user can enter “1 plate of rice and one whole chicken” and it understands they want nutritional information for rice and chicken in the provided quantity. [Demo](https://myfoodiee.netlify.app/)
 
 ## Built With
 
